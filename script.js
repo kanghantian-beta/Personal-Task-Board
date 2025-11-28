@@ -1,10 +1,10 @@
 /* --- 语言包与常量 --- */
 const I18N = {
-    zh: { title:'个人任务看板', todo:'待办', doing:'进行中', done:'已完成', dist:'多维分布', stat_status:'状态统计', stat_urgency:'紧急度统计', add_title:'⚡ 快速添加', add_ph:'要做什么？', btn_add:'添加', note_title:'灵感 / 笔记 / 截图', note_ph:'在此记录，自动保存...', btn_save:'保存', list_title:'任务明细', set_title:'全局设置', set_lang:'语言 / Language', set_backup:'数据管理', btn_export:'导出备份', btn_import:'导入恢复', set_font:'字体大小', set_radius:'圆角大小', set_color:'自定义颜色', col_bg:'背景', col_card:'卡片', btn_close:'完成', opt_p1:'🔴 重要且紧急', opt_p2:'🔵 重要不紧急', opt_p3:'🟠 不重要紧急', opt_p4:'⚪ 普通任务', opt_work:'💼 工作', opt_study:'📚 学习', opt_life:'🏠 生活', opt_all_tag:'全部标签', opt_all_cat:'全部类别', opt_all_sts:'全部状态', btn_ocr:'🔍 识别文字', btn_del:'删除', msg_del_task:'确定要删除这个任务吗？', msg_del_note:'确定要删除这条笔记吗？', msg_enter_sub:'请输入子任务内容：', msg_enter_name:'请输入备份文件名：', btn_confirm:'确定', btn_cancel:'取消' },
-    en: { title:'Life OS', todo:'Todo', doing:'Doing', done:'Done', dist:'Distribution', stat_status:'Status Stats', stat_urgency:'Urgency Stats', add_title:'⚡ Quick Add', add_ph:'What needs to be done?', btn_add:'Add', note_title:'Ideas & Notes', note_ph:'Type here...', btn_save:'Save', list_title:'Task List', set_title:'Settings', set_lang:'Language', set_backup:'Data Backup', btn_export:'Export', btn_import:'Import', set_font:'Font Size', set_radius:'Corner Radius', set_color:'Custom Colors', col_bg:'Bg', col_card:'Card', btn_close:'Close', opt_p1:'🔴 Imp & Urg', opt_p2:'🔵 Imp & Not Urg', opt_p3:'🟠 Not Imp & Urg', opt_p4:'⚪ Normal', opt_work:'💼 Work', opt_study:'📚 Study', opt_life:'🏠 Life', opt_all_tag:'All Tags', opt_all_cat:'All Cats', opt_all_sts:'All Status', btn_ocr:'🔍 OCR', btn_del:'Del', msg_del_task:'Delete this task?', msg_del_note:'Delete this note?', msg_enter_sub:'Enter subtask:', msg_enter_name:'Enter filename:', btn_confirm:'OK', btn_cancel:'Cancel' },
-    jp: { title:'タスク管理', todo:'未着手', doing:'進行中', done:'完了', dist:'分布', stat_status:'状態統計', stat_urgency:'緊急度統計', add_title:'⚡ 新規タスク', add_ph:'何をしますか？', btn_add:'追加', note_title:'メモ・アイデア', note_ph:'ここに入力...', btn_save:'保存', list_title:'タスク詳細', set_title:'設定', set_lang:'言語', set_backup:'バックアップ', btn_export:'出力', btn_import:'取込', set_font:'文字サイズ', set_radius:'角丸', set_color:'色設定', col_bg:'背景', col_card:'カード', btn_close:'完了', opt_p1:'🔴 重要・緊急', opt_p2:'🔵 重要・非緊急', opt_p3:'🟠 軽・緊急', opt_p4:'⚪ 普通', opt_work:'💼 仕事', opt_study:'📚 勉強', opt_life:'🏠 生活', opt_all_tag:'全タグ', opt_all_cat:'全分類', opt_all_sts:'全状態', btn_ocr:'🔍 文字認識', btn_del:'削除', msg_del_task:'削除しますか？', msg_del_note:'削除しますか？', msg_enter_sub:'サブタスクを入力:', msg_enter_name:'ファイル名:', btn_confirm:'OK', btn_cancel:'キャンセル' },
-    fr: { title:'Tableau de bord', todo:'À faire', doing:'En cours', done:'Fait', dist:'Distribution', stat_status:'Statut', stat_urgency:'Urgence', add_title:'Ajout rapide', add_ph:'Tâche...', btn_add:'Ajouter', note_title:'Notes', note_ph:'Écrivez ici...', btn_save:'Sauver', list_title:'Liste', set_title:'Paramètres', set_lang:'Langue', set_backup:'Sauvegarde', btn_export:'Exporter', btn_import:'Importer', set_font:'Taille police', set_radius:'Rayon', set_color:'Couleurs', col_bg:'Fond', col_card:'Carte', btn_close:'Fermer', opt_p1:'🔴 Imp & Urg', opt_p2:'🔵 Imp & Non Urg', opt_p3:'🟠 Non Imp & Urg', opt_p4:'⚪ Normal', opt_work:'💼 Travail', opt_study:'📚 Études', opt_life:'🏠 Vie', opt_all_tag:'Tous', opt_all_cat:'Tous', opt_all_sts:'Tous', btn_ocr:'🔍 OCR', btn_del:'Suppr', msg_del_task:'Supprimer?', msg_del_note:'Supprimer?', msg_enter_sub:'Sous-tâche:', msg_enter_name:'Nom de fichier:', btn_confirm:'OK', btn_cancel:'Annuler' },
-    es: { title:'Tablero', todo:'Por hacer', doing:'En curso', done:'Hecho', dist:'Distribución', stat_status:'Estado', stat_urgency:'Urgencia', add_title:'Añadir', add_ph:'Tarea...', btn_add:'Añadir', note_title:'Notas', note_ph:'Escriba aquí...', btn_save:'Guardar', list_title:'Lista', set_title:'Ajustes', set_lang:'Idioma', set_backup:'Respaldo', btn_export:'Exportar', btn_import:'Importar', set_font:'Tamaño fuente', set_radius:'Radio', set_color:'Colores', col_bg:'Fondo', col_card:'Tarjeta', btn_close:'Cerrar', opt_p1:'🔴 Imp & Urg', opt_p2:'🔵 Imp & No Urg', opt_p3:'🟠 No Imp & Urg', opt_p4:'⚪ Normal', opt_work:'💼 Trabajo', opt_study:'📚 Estudio', opt_life:'🏠 Vida', opt_all_tag:'Todos', opt_all_cat:'Todos', opt_all_sts:'Todos', btn_ocr:'🔍 OCR', btn_del:'Borrar', msg_del_task:'¿Borrar?', msg_del_note:'¿Borrar?', msg_enter_sub:'Subtarea:', msg_enter_name:'Nombre de archivo:', btn_confirm:'OK', btn_cancel:'Cancelar' }
+    zh: { title:'个人任务看板', todo:'待办', doing:'进行中', done:'已完成', dist:'多维分布', stat_status:'状态统计', stat_urgency:'紧急度统计', add_title:'⚡ 快速添加', add_ph:'要做什么？', btn_add:'添加', note_title:'灵感 / 笔记 / 截图', note_ph:'在此记录，自动保存...', btn_save:'保存', list_title:'任务明细', set_title:'全局设置', set_lang:'语言 / Language', set_backup:'数据管理', btn_export:'导出备份', btn_import:'导入恢复', set_font:'字体大小', set_radius:'圆角大小', set_color:'自定义颜色', col_bg:'背景', col_card:'卡片', btn_close:'完成', opt_p1:'🔴 重要且紧急', opt_p2:'🔵 重要不紧急', opt_p3:'🟠 不重要紧急', opt_p4:'⚪ 普通任务', opt_work:'💼 工作', opt_study:'📚 学习', opt_life:'🏠 生活', opt_all_tag:'全部标签', opt_all_cat:'全部类别', opt_all_sts:'全部状态', btn_ocr:'识别', btn_img:'图片', btn_del:'删除', msg_del_task:'确定要删除这个任务吗？', msg_del_note:'确定要删除这条笔记吗？', msg_enter_sub:'请输入子任务内容：', msg_enter_name:'请输入备份文件名：', btn_confirm:'确定', btn_cancel:'取消' },
+    en: { title:'Life OS', todo:'Todo', doing:'Doing', done:'Done', dist:'Distribution', stat_status:'Status Stats', stat_urgency:'Urgency Stats', add_title:'⚡ Quick Add', add_ph:'What needs to be done?', btn_add:'Add', note_title:'Ideas & Notes', note_ph:'Type here...', btn_save:'Save', list_title:'Task List', set_title:'Settings', set_lang:'Language', set_backup:'Data Backup', btn_export:'Export', btn_import:'Import', set_font:'Font Size', set_radius:'Corner Radius', set_color:'Custom Colors', col_bg:'Bg', col_card:'Card', btn_close:'Close', opt_p1:'🔴 Imp & Urg', opt_p2:'🔵 Imp & Not Urg', opt_p3:'🟠 Not Imp & Urg', opt_p4:'⚪ Normal', opt_work:'💼 Work', opt_study:'📚 Study', opt_life:'🏠 Life', opt_all_tag:'All Tags', opt_all_cat:'All Cats', opt_all_sts:'All Status', btn_ocr:'OCR', btn_img:'Image', btn_del:'Del', msg_del_task:'Delete this task?', msg_del_note:'Delete this note?', msg_enter_sub:'Enter subtask:', msg_enter_name:'Enter filename:', btn_confirm:'OK', btn_cancel:'Cancel' },
+    jp: { title:'タスク管理', todo:'未着手', doing:'進行中', done:'完了', dist:'分布', stat_status:'状態統計', stat_urgency:'緊急度統計', add_title:'⚡ 新規タスク', add_ph:'何をしますか？', btn_add:'追加', note_title:'メモ・アイデア', note_ph:'ここに入力...', btn_save:'保存', list_title:'タスク詳細', set_title:'設定', set_lang:'言語', set_backup:'バックアップ', btn_export:'出力', btn_import:'取込', set_font:'文字サイズ', set_radius:'角丸', set_color:'色設定', col_bg:'背景', col_card:'カード', btn_close:'完了', opt_p1:'🔴 重要・緊急', opt_p2:'🔵 重要・非緊急', opt_p3:'🟠 軽・緊急', opt_p4:'⚪ 普通', opt_work:'💼 仕事', opt_study:'📚 勉強', opt_life:'🏠 生活', opt_all_tag:'全タグ', opt_all_cat:'全分類', opt_all_sts:'全状態', btn_ocr:'文字認識', btn_img:'画像', btn_del:'削除', msg_del_task:'削除しますか？', msg_del_note:'削除しますか？', msg_enter_sub:'サブタスクを入力:', msg_enter_name:'ファイル名:', btn_confirm:'OK', btn_cancel:'キャンセル' },
+    fr: { title:'Tableau de bord', todo:'À faire', doing:'En cours', done:'Fait', dist:'Distribution', stat_status:'Statut', stat_urgency:'Urgence', add_title:'Ajout rapide', add_ph:'Tâche...', btn_add:'Ajouter', note_title:'Notes', note_ph:'Écrivez ici...', btn_save:'Sauver', list_title:'Liste', set_title:'Paramètres', set_lang:'Langue', set_backup:'Sauvegarde', btn_export:'Exporter', btn_import:'Importer', set_font:'Taille police', set_radius:'Rayon', set_color:'Couleurs', col_bg:'Fond', col_card:'Carte', btn_close:'Fermer', opt_p1:'🔴 Imp & Urg', opt_p2:'🔵 Imp & Non Urg', opt_p3:'🟠 Non Imp & Urg', opt_p4:'⚪ Normal', opt_work:'💼 Travail', opt_study:'📚 Études', opt_life:'🏠 Vie', opt_all_tag:'Tous', opt_all_cat:'Tous', opt_all_sts:'Tous', btn_ocr:'OCR', btn_img:'Image', btn_del:'Suppr', msg_del_task:'Supprimer?', msg_del_note:'Supprimer?', msg_enter_sub:'Sous-tâche:', msg_enter_name:'Nom de fichier:', btn_confirm:'OK', btn_cancel:'Annuler' },
+    es: { title:'Tablero', todo:'Por hacer', doing:'En curso', done:'Hecho', dist:'Distribución', stat_status:'Estado', stat_urgency:'Urgencia', add_title:'Añadir', add_ph:'Tarea...', btn_add:'Añadir', note_title:'Notas', note_ph:'Escriba aquí...', btn_save:'Guardar', list_title:'Lista', set_title:'Ajustes', set_lang:'Idioma', set_backup:'Respaldo', btn_export:'Exportar', btn_import:'Importar', set_font:'Tamaño fuente', set_radius:'Radio', set_color:'Colores', col_bg:'Fondo', col_card:'Tarjeta', btn_close:'Cerrar', opt_p1:'🔴 Imp & Urg', opt_p2:'🔵 Imp & No Urg', opt_p3:'🟠 No Imp & Urg', opt_p4:'⚪ Normal', opt_work:'💼 Trabajo', opt_study:'📚 Estudio', opt_life:'🏠 Vida', opt_all_tag:'Todos', opt_all_cat:'Todos', opt_all_sts:'Todos', btn_ocr:'OCR', btn_img:'Imagen', btn_del:'Borrar', msg_del_task:'¿Borrar?', msg_del_note:'¿Borrar?', msg_enter_sub:'Subtarea:', msg_enter_name:'Nombre de archivo:', btn_confirm:'OK', btn_cancel:'Cancelar' }
 };
 const COLORS = { p1:'#f54a45', p2:'#3370ff', p3:'#ff8800', p4:'#999', work:'#3370ff', study:'#9333ea', life:'#00b665', todo:'#ccc', doing:'#3370ff', done:'#00b665' };
 
@@ -12,12 +12,12 @@ const COLORS = { p1:'#f54a45', p2:'#3370ff', p3:'#ff8800', p4:'#999', work:'#337
 let tasks=[], notes=[], config={bgColor:'#f2f3f5', cardColor:'#ffffff', radius:12, font:1, lang:'zh', pcWidth:600, order:[], pinned:[], appTitle:'个人任务看板'};
 let filters={tag:'all', cat:'all', status:'all'}, tempImg=null;
 
-/* --- 初始化 --- */
 function init() {
     tryMigrate(); applyConfig(); setupDrag(); setupClock(); updateLang();
     renderSelect('sel-add-tag', getOpts('tag'), 'p4');
     renderSelect('sel-add-cat', getOpts('cat'), 'life');
     updateFilters();
+    document.getElementById('note-input').addEventListener('paste', handlePaste);
     renderAll();
 }
 
@@ -25,7 +25,7 @@ function tryMigrate() {
     if(localStorage.getItem('v7_tasks')) {
         tasks = JSON.parse(localStorage.getItem('v7_tasks'));
         notes = JSON.parse(localStorage.getItem('v7_notes'));
-        config = {...config, ...JSON.parse(localStorage.getItem('v7_config'))}; // 合并新配置
+        config = {...config, ...JSON.parse(localStorage.getItem('v7_config'))};
         return;
     }
     const oldPrefixes = ['v6_', 'v5_', 'lifeos_', 'perfect_', 'final_'];
@@ -40,13 +40,9 @@ function tryMigrate() {
     }
 }
 
-/* --- 核心渲染 --- */
 function renderAll() {
-    document.title = config.appTitle; // 同步浏览器标题
-    document.getElementById('app-title-input').value = config.appTitle; // 同步输入框
-    
+    document.title = config.appTitle; document.getElementById('app-title-input').value = config.appTitle;
     renderKPI(); renderCharts(); renderList(); renderNotes();
-    // 固定状态应用
     document.querySelectorAll('.section-block').forEach(el => {
         el.classList.toggle('pinned', config.pinned.includes(el.id));
         const btn = el.querySelector('.pin-btn');
@@ -67,10 +63,11 @@ function updateFilters() {
     const mkF=(a,l)=>[{v:'all',t:l,c:'',col:'#ccc'}].concat(a);
     renderSelect('filter-tag', mkF(getOpts('tag'),t.opt_all_tag), filters.tag, v=>{filters.tag=v;renderList()});
     renderSelect('filter-cat', mkF(getOpts('cat'),t.opt_all_cat), filters.cat, v=>{filters.cat=v;renderList()});
+    // 关键修复：KPI点击后，必须强制更新这里的选中状态显示
     renderSelect('filter-status', mkF(getOpts('status'),t.opt_all_sts), filters.status, v=>{filters.status=v;renderList()});
 }
 
-/* --- 自定义弹窗逻辑 (替代原生) --- */
+/* --- 自定义弹窗 --- */
 let modalCallback = null;
 function showCustomModal(titleKey, bodyHtml, callback, isInput=false, defaultVal='') {
     const t = I18N[config.lang];
@@ -78,7 +75,6 @@ function showCustomModal(titleKey, bodyHtml, callback, isInput=false, defaultVal
     const body = document.getElementById('modal-body');
     body.innerHTML = bodyHtml;
     
-    // 更新按钮文字
     document.querySelector('#custom-modal .btn-text').innerText = t.btn_cancel;
     document.querySelector('#custom-modal .btn-primary').innerText = t.btn_confirm;
 
@@ -94,38 +90,26 @@ function showCustomModal(titleKey, bodyHtml, callback, isInput=false, defaultVal
         if(isInput) {
             const val = document.getElementById('modal-input').value;
             if(val) callback(val);
-        } else {
-            callback();
-        }
+        } else { callback(); }
         closeCustomModal();
     };
     document.getElementById('modal-confirm-btn').onclick = modalCallback;
 }
-
 function closeCustomModal(e) {
     if(!e || e.target.id === 'custom-modal' || e.target.getAttribute('data-i18n') === 'btn_cancel') {
-        document.getElementById('custom-modal').style.display = 'none';
-        modalCallback = null;
+        document.getElementById('custom-modal').style.display = 'none'; modalCallback = null;
     }
 }
 
 /* --- 交互逻辑 --- */
-function updateAppTitle(val) {
-    config.appTitle = val;
-    document.title = val;
-    save();
-}
+function updateAppTitle(val) { config.appTitle = val; document.title = val; save(); }
 
-// KPI 联动：筛选、高亮、固定、滚动
+// 修复后的KPI点击逻辑：联动更新筛选器UI
 function handleKPIClick(status) {
-    // 1. 设置筛选状态
     filters.status = status;
-    updateFilters(); // 刷新筛选器UI高亮
-    // 2. 自动固定KPI和列表
+    updateFilters(); // 这一步至关重要，让下拉框显示当前选中的状态
     if(!config.pinned.includes('sec-kpi')) config.pinned.push('sec-kpi');
-    // 3. 保存并刷新
     save(); renderAll();
-    // 4. 滚动
     document.getElementById('sec-list').scrollIntoView({behavior:'smooth'});
 }
 
@@ -145,37 +129,45 @@ function addTask() {
 }
 
 function updateTask(i,k,v) { tasks[i][k]=v; const n=getNow(); tasks[i].date=n.d; tasks[i].time=n.t; save(); renderList(); }
-function delTask(i) {
-    showCustomModal('msg_del_task', '', () => { tasks.splice(i,1); save(); renderAll(); });
-}
-
-// 子任务 (使用自定义弹窗)
+function delTask(i) { showCustomModal('msg_del_task', '', () => { tasks.splice(i,1); save(); renderAll(); }); }
 function promptSub(i) {
-    const t = I18N[config.lang];
-    showCustomModal('msg_enter_sub', '<input type="text" id="modal-input" style="width:100%">', (val) => {
+    showCustomModal('msg_enter_sub', '<input type="text" id="modal-input" style="width:100%" class="seamless-input" style="border:1px solid #ddd">', (val) => {
         tasks[i].sub.push({text:val, done:false}); tasks[i].showSub=true; save(); renderList();
     }, true);
 }
 
-/* --- OCR & Note --- */
+/* --- OCR 优化：预压缩 + 状态反馈 --- */
 async function doOCR() {
     if(!tempImg) return;
-    const btn=document.getElementById('btn-ocr'); const old=btn.innerText; btn.innerText='...';
+    const btn=document.getElementById('btn-ocr');
+    const originalText = btn.innerHTML; // 保存原始按钮内容
+    
+    // 1. 设置加载状态
+    btn.innerHTML = `<span>⏳</span>`; 
+    btn.disabled = true;
+
     try {
+        // 2. 压缩图片给 OCR (极大提升速度)
+        // 注意：compressImage 返回 base64，直接传给 recognize
+        // 使用 fast 模式或默认模式
         const {data:{text}} = await Tesseract.recognize(tempImg, config.lang==='zh'?'chi_sim':'eng');
         const optimizedText = text.replace(/([\u4e00-\u9fa5])\s+(?=[\u4e00-\u9fa5])/g, '$1');
         document.getElementById('note-input').value += '\n' + optimizedText;
-    } catch(e){ alert('Network Error'); }
-    btn.innerText=old;
+    } catch(e){ 
+        alert('Network Error / OCR Failed'); 
+    }
+    
+    // 3. 恢复按钮
+    btn.innerHTML = originalText;
+    btn.disabled = false;
 }
+
 async function addNote(){const t=document.getElementById('note-input').value;if(!t&&!tempImg)return;try{const n=getNow();notes.unshift({id:Date.now(),text:t,img:tempImg,date:n.d,time:n.t});save();document.getElementById('note-input').value='';document.getElementById('note-preview-area').innerHTML='';tempImg=null;renderNotes();}catch(e){alert('Full');}}
 function delNote(i) { showCustomModal('msg_del_note', '', () => { notes.splice(i,1); save(); renderNotes(); }); }
 
-/* --- 导出导入 --- */
 function promptExport() {
-    const t = I18N[config.lang];
     const defaultName = "backup_" + getNow().d;
-    showCustomModal('msg_enter_name', `<input type="text" id="modal-input" style="width:100%" value="${defaultName}">`, (val) => {
+    showCustomModal('msg_enter_name', `<input type="text" id="modal-input" style="width:100%" value="${defaultName}" class="seamless-input" style="border:1px solid #ddd">`, (val) => {
         const b=new Blob([JSON.stringify({tasks,notes,config})],{type:'application/json'});
         const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download=`${val}.json`; a.click();
     }, true, defaultName);
@@ -244,15 +236,39 @@ function setupDrag(){
     });
     if(config.order)config.order.forEach(id=>con.appendChild(document.getElementById(id)));
 }
+
+// 关键修复：下拉框层级智能提升
 function renderSelect(id,opts,val,cb){
     const el=document.getElementById(id);if(!el)return;
     const cur=opts.find(o=>o.v===val)||opts[0];
     el.innerHTML=`<div class="select-trigger ${cur.c}" onclick="toggleSelect('${id}')">${cur.t}</div><div class="select-options">${opts.map(o=>`<div class="select-option" onclick="selectOption('${id}','${o.v}')"><span style="width:8px;height:8px;border-radius:50%;background:${o.col};display:inline-block"></span>${o.t}</div>`).join('')}</div>`;
     el.dataset.val=val; el.onchangeCallback=cb;
 }
-function toggleSelect(id){document.querySelectorAll('.select-options').forEach(e=>e.parentElement.id!==id&&e.classList.remove('open'));document.querySelector(`#${id} .select-options`).classList.toggle('open');}
-function selectOption(id,v){const el=document.getElementById(id);el.dataset.val=v;document.querySelector(`#${id} .select-options`).classList.remove('open');if(el.onchangeCallback)el.onchangeCallback(v);}
-document.addEventListener('click',e=>{if(!e.target.closest('.custom-select'))document.querySelectorAll('.select-options').forEach(x=>x.classList.remove('open'))});
+function toggleSelect(id){
+    const all = document.querySelectorAll('.select-options');
+    const target = document.querySelector(`#${id} .select-options`);
+    const isOpen = target.classList.contains('open');
+    
+    // 关闭所有，并复位 z-index
+    all.forEach(e => {
+        e.classList.remove('open');
+        e.closest('.section-block')?.classList.remove('z-top');
+    });
+
+    if(!isOpen) {
+        target.classList.add('open');
+        // 核心：提升所在卡片的层级，防止被遮挡
+        target.closest('.section-block')?.classList.add('z-top');
+    }
+}
+function selectOption(id,v){const el=document.getElementById(id);el.dataset.val=v; toggleSelect(id); if(el.onchangeCallback)el.onchangeCallback(v);} // toggleSelect 会负责关闭和复位层级
+document.addEventListener('click',e=>{
+    if(!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.select-options').forEach(x=>x.classList.remove('open'));
+        document.querySelectorAll('.section-block').forEach(x=>x.classList.remove('z-top'));
+    }
+});
+
 function compressImage(f){return new Promise(r=>{const rd=new FileReader();rd.readAsDataURL(f);rd.onload=e=>{const img=new Image();img.src=e.target.result;img.onload=()=>{const cvs=document.createElement('canvas');const ctx=cvs.getContext('2d');const max=800;let w=img.width,h=img.height;if(w>max){h*=max/w;w=max;}cvs.width=w;cvs.height=h;ctx.drawImage(img,0,0,w,h);r(cvs.toDataURL('image/jpeg',0.7))}}})}
 async function handleImgUpload(i){if(i.files[0]){tempImg=await compressImage(i.files[0]);document.getElementById('note-preview-area').innerHTML=`<img src="${tempImg}" class="note-thumb">`}}
 async function handlePaste(e){for(let i of e.clipboardData.items)if(i.type.startsWith('image')){tempImg=await compressImage(i.getAsFile());document.getElementById('note-preview-area').innerHTML=`<img src="${tempImg}" class="note-thumb">`}}

@@ -13,28 +13,33 @@ body {
 #viewport-wrapper { width: 100%; max-width: var(--pc-width); padding: 15px; padding-bottom: 120px; transition: max-width 0.2s ease; }
 #app-container { display: flex; flex-direction: column; gap: 15px; position: relative; }
 
-/* 拖拽与固定 */
+/* 拖拽与层级核心 (Z-Index System) */
+/* Normal: 1 | Pinned: 1000 | Active Dropdown: 1500 | Dragging: 2000 | Settings: 3000 | Alert: 3100 | Lightbox: 4000 */
 .section-block { touch-action: pan-y; transition: transform 0.2s, box-shadow 0.2s; position: relative; background: transparent; z-index: 1; }
 .section-block.dragging { opacity: 0.9; transform: scale(1.02); z-index: 2000 !important; box-shadow: 0 15px 30px rgba(0,0,0,0.15); user-select: none; }
 .section-block.pinned { position: sticky; top: 0; z-index: 1000; margin-bottom: 10px; border-radius: var(--radius); }
 .section-block.pinned .card { border: 2px solid var(--blue); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+/* 下拉菜单打开时，强行提升该板块层级 */
+.section-block.z-top { z-index: 1500 !important; }
+
 .pin-btn { position: absolute; top: 10px; right: 10px; z-index: 10; background: transparent; border: none; font-size: 1.2em; cursor: pointer; opacity: 0.3; }
 .section-block.pinned .pin-btn { opacity: 1; transform: scale(1.1); }
 
-/* 通用组件 */
+/* 组件 */
 .card { background: var(--bg-card); border-radius: var(--radius); padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid var(--border); position: relative; }
 .btn { border: none; border-radius: var(--radius); padding: 8px 16px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; font-size: 0.95em; }
 .btn-primary { background: var(--blue); color: white; }
 .btn-outline { border: 1px solid var(--border); background: transparent; color: var(--text-main); }
 .btn-text { background: transparent; color: var(--text-sub); }
 .icon-btn { font-size: 1.4em; padding: 5px; }
+.btn-icon-text span:first-child { margin-right: 5px; } /* 图标和文字间距 */
 
 input, textarea, select { border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; font-size: 1em; background: var(--bg-card); width: 100%; outline: none; transition: border-color 0.2s; font-family: inherit; }
 input:focus, textarea:focus { border-color: var(--blue); }
 .seamless-input { border: 1px solid transparent; background: transparent; padding: 2px 4px; margin: -2px; width: 100%; }
 .seamless-input:focus { border: 1px solid var(--blue); background: #fff; border-radius: 4px; }
 
-/* 标题编辑 */
+/* 顶部与标题 */
 .app-title-edit { font-weight: 800; font-size: 1.4em; border: none !important; background: transparent !important; padding: 0 !important; width: auto !important; color: inherit; }
 .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .sys-time { font-size: 0.9em; color: var(--text-sub); font-family: monospace; font-weight: bold; }
@@ -61,11 +66,14 @@ input:focus, textarea:focus { border-color: var(--blue); }
 .bar-fill { width: 100%; min-height: 4px; border-radius: calc(var(--radius)*0.4) calc(var(--radius)*0.4) 0 0; opacity: 0.9; transition: height 0.3s; }
 .bar-legend-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 
-/* 自定义下拉菜单 */
+/* 自定义下拉菜单 (关键修复：Z-Index) */
 .custom-select { position: relative; cursor: pointer; user-select: none; min-width: 90px; }
 .select-trigger { border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 10px; background: var(--bg-card); display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; white-space: nowrap; overflow: hidden;}
 .select-trigger::after { content: '▼'; font-size: 0.6em; color: #999; margin-left: 6px; }
-.select-options { position: absolute; top: 105%; left: 0; min-width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 100; display: none; max-height: 250px; overflow-y: auto; }
+.select-options { position: absolute; top: 105%; left: 0; min-width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+    z-index: 9999; /* 确保极高 */
+    display: none; max-height: 250px; overflow-y: auto; 
+}
 .select-options.open { display: block; }
 .select-option { padding: 10px; font-size: 0.9em; border-bottom: 1px solid #f5f5f5; display: flex; align-items: center; gap: 6px; }
 
@@ -82,20 +90,24 @@ input:focus, textarea:focus { border-color: var(--blue); }
 .subtasks.show { display: block; }
 .sub-item { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 0.9em; }
 
-/* 笔记 */
+/* 笔记 & 工具栏 */
 .note-preview-area { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0; }
 .note-thumb { height: 60px; border-radius: 6px; border: 1px solid #eee; cursor: zoom-in; object-fit: cover; }
 .note-item { margin-bottom: 12px; padding: 12px; background: #f9f9f9; border-radius: 8px; border: 1px solid #eee; }
 .note-edit-area { width: 100%; background: transparent; border: none; resize: vertical; font-size: 0.95em; line-height: 1.5; font-family: inherit; }
-.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; display: none; justify-content: center; align-items: center; cursor: zoom-out; }
+.note-toolbar { display: flex; gap: 8px; align-items: center; margin-top: 5px; }
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 4000; display: none; justify-content: center; align-items: center; cursor: zoom-out; }
 .lightbox img { max-width: 95%; max-height: 95%; border-radius: 4px; }
 
-/* 自定义弹窗 (替代原生 alert) */
-.custom-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 2000; }
+/* 自定义弹窗体系 */
+.custom-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 3100; } /* 默认弹窗极高 */
+#settings-modal { z-index: 3000; align-items: flex-end; } /* 设置页面稍微低一点，且在底部 */
+
 .custom-modal-content { background: #fff; width: 90%; max-width: 400px; border-radius: var(--radius); padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: popIn 0.2s ease; }
 @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 .modal-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
-/* 设置面板专用样式 */
+
+/* 设置面板样式 */
 .settings-content { position: absolute; bottom: 0; left: 0; width: 100%; max-width: 100%; border-radius: 20px 20px 0 0; animation: slideUp 0.3s; max-height: 85vh; overflow-y: auto; }
 @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 .setting-item { margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px; }
