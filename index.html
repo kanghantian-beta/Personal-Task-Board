@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>快记板 (云同步版)</title>
+    <title>快记板</title>
     <link rel="stylesheet" href="style.css">
     <!-- OCR 库 -->
     <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
-    <!-- Firebase 核心库 (必须引入) -->
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
-    <!-- 状态指示条 (新增：显示同步状态) -->
-    <div id="sync-status" style="position:fixed; top:0; left:0; width:100%; height:3px; background:transparent; z-index:9999; transition:0.3s;"></div>
+    <!-- 登录/ID 设置弹窗 (最顶层) -->
+    <div id="login-modal" class="fullscreen-modal">
+        <div class="login-box">
+            <h2>👋 欢迎使用快记板</h2>
+            <p>请设置一个同步 ID，以便在多设备间同步数据。</p>
+            <input type="text" id="login-id-input" placeholder="输入现有 ID 或 创建新 ID" class="big-input">
+            <div class="login-btns">
+                <button class="btn btn-primary" onclick="handleLogin()" style="width:100%; padding:12px;">进入看板</button>
+            </div>
+            <div style="margin-top:15px; font-size:0.8em; color:#999;">
+                或者 <span style="text-decoration:underline; cursor:pointer;" onclick="generateNewId()">随机生成一个新 ID</span>
+            </div>
+        </div>
+    </div>
 
     <div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src=""></div>
 
+    <!-- 通用确认弹窗 -->
     <div class="custom-modal-overlay" id="custom-modal" onclick="closeCustomModal(event)">
         <div class="custom-modal-content">
             <h3 id="modal-title">标题</h3>
@@ -30,10 +43,13 @@
 
     <div id="viewport-wrapper">
         <div class="top-bar">
-            <!-- 标题不可直接编辑，改为显示房间号 -->
+            <!-- 标题区域：显示 ID 和 状态 -->
             <div style="flex:1">
-                <div class="app-title">快记板 <span style="font-size:0.5em; color:#fff; background:#00b665; padding:2px 5px; border-radius:4px;">CLOUD</span></div>
-                <div style="font-size:0.7em; color:#999; cursor:pointer;" onclick="copyLink()" id="room-id-display">ID: ... (点此复制分享)</div>
+                <input type="text" id="app-title-input" class="app-title-edit" value="快记板" onchange="updateAppTitle(this.value)">
+                <div class="sync-info">
+                    <span id="sync-indicator">🟢</span> 
+                    <span id="current-room-id" onclick="copyId()">ID: ...</span>
+                </div>
             </div>
             <div class="sys-time" id="sys-clock">00:00:00</div>
             <button class="btn btn-text icon-btn" onclick="openSettings()">⚙️</button>
@@ -100,12 +116,21 @@
     <div class="custom-modal-overlay" id="settings-modal" onclick="if(event.target===this) closeSettings()">
         <div class="custom-modal-content settings-content">
             <h3 style="margin-top:0" data-i18n="set_title">全局设置</h3>
-            <div style="background:#e0edff; color:#3370ff; padding:10px; border-radius:8px; margin-bottom:15px; font-size:0.9em;">
-                ☁️ <b>云同步模式已开启</b><br>
-                所有数据实时保存到云端。将当前网址复制给他人即可共享协作。
+            
+            <!-- 同步 ID 管理 -->
+            <div class="setting-item" style="background:#f0f7ff; border:1px solid #cce5ff; padding:10px; border-radius:8px;">
+                <label class="setting-label">☁️ 同步 ID (多设备通用)</label>
+                <div style="display:flex; gap:10px; margin-bottom:10px">
+                    <input type="text" id="setting-room-id" readonly style="background:#eee; color:#666">
+                    <button class="btn btn-outline" onclick="copyId()">复制</button>
+                </div>
+                <button class="btn btn-primary" style="width:100%; background:#ff4d4f;" onclick="logoutAndClear()">🚪 退出并清除本地数据</button>
+                <div style="font-size:0.8em; color:#666; margin-top:5px">提示：若要切换账号，请点击退出。</div>
             </div>
+
             <div class="setting-item"><label class="setting-label">PC页面宽度</label><input type="range" min="375" max="1200" step="10" id="width-range" style="width:100%" oninput="setPcWidth(this.value)"></div>
             <div class="setting-item"><label class="setting-label" data-i18n="set_lang">语言</label><select id="lang-select" onchange="changeLang(this.value)" style="width:100%"><option value="zh">🇨🇳 中文</option><option value="en">🇺🇸 English</option><option value="jp">🇯🇵 日本語</option><option value="fr">🇫🇷 Français</option><option value="es">🇪🇸 Español</option></select></div>
+            <div class="setting-item"><label class="setting-label" data-i18n="set_backup">手动备份</label><div style="display:flex; gap:10px"><button class="btn btn-outline" style="flex:1" onclick="promptExport()">📤 <span data-i18n="btn_export">导出</span></button><button class="btn btn-outline" style="flex:1" onclick="document.getElementById('file-import').click()">📥 <span data-i18n="btn_import">导入</span></button><input type="file" id="file-import" style="display:none" onchange="importData(this)"></div></div>
             <div class="setting-item"><label class="setting-label" data-i18n="set_font">字体大小</label><input type="range" min="0.8" max="1.3" step="0.05" id="font-range" style="width:100%" oninput="setFont(this.value)"></div>
             <div class="setting-item"><label class="setting-label" data-i18n="set_radius">圆角大小</label><input type="range" min="0" max="25" step="1" id="radius-range" style="width:100%" oninput="setRadius(this.value)"></div>
             <div class="setting-item"><label class="setting-label" data-i18n="set_color">自定义颜色</label><div style="display:flex; gap:15px; align-items:center;"><span data-i18n="col_bg">背景</span> <input type="color" id="bg-color-picker" oninput="setBgColor(this.value)" style="height:30px"><span data-i18n="col_card">卡片</span> <input type="color" id="card-color-picker" oninput="setCardColor(this.value)" style="height:30px"></div></div>
